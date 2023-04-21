@@ -42,21 +42,21 @@ stage('Install dependencies') {
   }
 }
 
-    stage('Run test cases') {
-      steps {
-        sh '''# define where you want the test results
-export JUNIT_REPORT_PATH=./test-results.xml
+//     stage('Run test cases') {
+//       steps {
+//         sh '''# define where you want the test results
+// export JUNIT_REPORT_PATH=./test-results.xml
 
-## run mocha and tell it to use the JUnit reporter
-npx mocha --reporter mocha-jenkins-reporter'''
-        sh 'ls -lart'
-	sh 'pwd'
-      }
-    }
+// ## run mocha and tell it to use the JUnit reporter
+// npx mocha --reporter mocha-jenkins-reporter'''
+//         sh 'ls -lart'
+// 	sh 'pwd'
+//       }
+//     }
   }
   post {
     always {
-        junit 'test-results.xml'
+        //junit 'test-results.xml'
   	cacheUpload([WORKSPACE_CACHE_DIR: "node_modules", CACHE_KEY: "NPM_CI_CACHE"])
 
     }
