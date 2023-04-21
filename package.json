@@ -1,0 +1,24 @@
+{
+  "name": "jenkins-ci-cd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/auth0-blog/jenkins-ci-cd.git"
+  },
+  "keywords": [],
+  "author": "Bruno Krebs <krebs.bruno@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/auth0-blog/jenkins-ci-cd/issues"
+  },
+  "homepage": "https://github.com/auth0-blog/jenkins-ci-cd#readme",
+  "devDependencies": {
+    "mocha": "^6.1.4",
+    "mocha-jenkins-reporter": "^0.4.1"
+  }
+}
