@@ -1,7 +1,6 @@
 #!/usr/bin/env groovy
 
 def call(Map config) {
-    container('gcloud') {
     try {
         String bucketName = "gs://${env.JENKINS_GCS_BUCKET}"
         String checksum = config.checksum ?: checkSum(file1: "${config.file1}", file2: "${config.file2}")
@@ -24,5 +23,4 @@ def call(Map config) {
 	    sh "gsutil cp ${job}-${config.NAME}-${checksum} ${bucketName}"
         return false
     }
- }
 }
