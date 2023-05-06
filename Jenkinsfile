@@ -29,6 +29,8 @@ stage('Install dependencies') {
   steps {
     script {
           sh "ls -lart"
+	  sh "cat Jenkinsfile"
+	  sh "cat vars/isCacheValid.groovy"
 	  if (isCacheValid(CHECKSUM_FILES: "package.json,package-lock.json", NAME: "NPM-CACHE")) {
 	      cacheDownload([WORKSPACE_CACHE_DIR: "node_modules", CACHE_KEY: "NPM_CI_CACHE"]) 
 	  sh "echo cache found"
