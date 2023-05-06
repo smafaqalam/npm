@@ -29,11 +29,7 @@ stage('Install dependencies') {
   steps {
     script {
           sh "ls -lart"
-          //String checksum = ChecksumUtils.getChecksum("${env.WORKSPACE}/package.json", "${env.WORKSPACE}/package-lock.json")
-	  //println "Content of checksum: ${checksum}"
-	  //sh "echo value for checksum: ${checksum}"
 	  if (isCacheValid(CHECKSUM_FILES: "package.json,package-lock.json", NAME: "NPM-CACHE")) {
-	  //if (isCacheValid([file1: "${env.WORKSPACE}/package.json", file2: "${env.WORKSPACE}/package-lock.json", NAME: "NPM-CACHE"])) {
 	      cacheDownload([WORKSPACE_CACHE_DIR: "node_modules", CACHE_KEY: "NPM_CI_CACHE"]) 
 	  sh "echo cache found"
 	  } else {
