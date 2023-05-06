@@ -3,10 +3,10 @@
 def call(Map config) {
     try {
         String bucketName = "gs://${env.JENKINS_GCS_BUCKET}"
-        //String checksum = config.checksum ?: checkSum(file1: "${config.file1}", file2: "${config.file2}")
+        String checksum = config.checksum ?: checkSum(file1: "${config.file1}", file2: "${config.file2}")
         String job = "${env.JOB_NAME}".contains("/") ? "${env.JOB_NAME}".replaceAll("/", "-") : "${env.JOB_NAME}"
-	Collection<String> checksumFiles = (config.CHECKSUM_FILES ?: []) as Collection<String>
-	String checksum = config.checksum ?: checkSum(checksumFiles)
+	//Collection<String> checksumFiles = (config.CHECKSUM_FILES ?: []) as Collection<String>
+	//String checksum = config.checksum ?: checkSum(checksumFiles)
 
 
         def checksumfileExist = sh(script: "gsutil stat ${bucketName}/${job}-${config.NAME}-${checksum}", returnStatus: true) as Integer   
